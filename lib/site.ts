@@ -20,6 +20,8 @@ export const site = {
 
 export const siteUrl = (process.env.SITE_URL || "https://dar-albadie-khamis.vercel.app").replace(/\/$/, "");
 
+export const mapEmbedUrl = `https://maps.google.com/maps?q=${site.latitude}%2C${site.longitude}&z=16&output=embed`;
+
 export const whatsappLink = (message?: string) =>
   message ? `${site.whatsapp}?text=${encodeURIComponent(message)}` : site.whatsapp;
 

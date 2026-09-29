@@ -22,8 +22,8 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="topline">
         <div className="container topline-inner">
-          <span><MapPin size={14} aria-hidden="true" /> فرع خميس مشيط · حي النزهة</span>
-          <a href={`tel:${site.phone}`}><Phone size={14} aria-hidden="true" /> {site.displayPhone}</a>
+          <span className="topline-location"><MapPin size={15} aria-hidden="true" /> خميس مشيط · حي النزهة</span>
+          <a className="topline-call" href={`tel:${site.phone}`} aria-label={`اتصل بالمركز على ${site.displayPhone}`}><Phone size={15} aria-hidden="true" /><bdi dir="ltr">{site.displayPhone}</bdi></a>
         </div>
       </div>
       <div className="container header-main">
@@ -52,14 +52,14 @@ export function SiteFooter() {
       <div className="container footer-top">
         <div className="footer-intro">
           <div className="brand footer-brand"><BrandMark /><span className="brand-copy"><strong>دار البديع</strong><small>للحجامة · خميس مشيط</small></span></div>
-          <p>معلومات واضحة عن الحجامة وفرع خميس مشيط، وخطوة مباشرة للتواصل قبل زيارتك.</p>
-          <a className="text-link light" href={site.maps} target="_blank" rel="noopener noreferrer"><MapPin size={18} aria-hidden="true" /> {site.shortAddress} <ArrowUpLeft size={16} aria-hidden="true" /></a>
+          <p>تعرّف على فرع خميس مشيط وخدمات الحجامة وأقسام المركز، ثم تواصل معنا لتأكيد تفاصيل زيارتك.</p>
+          <a className="footer-address" href={site.maps} target="_blank" rel="noopener noreferrer"><MapPin size={18} aria-hidden="true" /><span>{site.shortAddress}</span><ArrowUpLeft size={16} aria-hidden="true" /></a>
         </div>
-        <div className="footer-links"><h2>تصفّح الموقع</h2>{links.map((link) => <Link href={link.href} key={link.href}>{link.label}</Link>)}</div>
-        <div className="footer-links"><h2>الأقسام والخدمات</h2>{services.map((service) => <Link href={`/services/${service.slug}`} key={service.slug}>{service.shortTitle}</Link>)}</div>
-        <div className="footer-contact"><h2>تواصل مع الفرع</h2><p>حي النزهة، خميس مشيط 62465</p><a href={`tel:${site.phone}`} dir="ltr">{site.displayPhone}</a><a className="footer-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={18} height={18} /> تواصل عبر واتساب</a></div>
+        <nav className="footer-links" aria-label="روابط الموقع"><h2>تصفّح الموقع</h2>{links.map((link) => <Link href={link.href} key={link.href}>{link.label}</Link>)}</nav>
+        <nav className="footer-links" aria-label="الخدمات والأقسام"><h2>الأقسام والخدمات</h2>{services.map((service) => <Link href={`/services/${service.slug}`} key={service.slug}>{service.shortTitle}</Link>)}</nav>
+        <div className="footer-contact"><span className="footer-contact-kicker">تواصل مع فرع خميس مشيط</span><h2>جاهزين لاستفسارك</h2><p>اسأل عن الخدمة والمواعيد المتاحة قبل الحضور.</p><a className="footer-phone" href={`tel:${site.phone}`} aria-label={`اتصل بالمركز على ${site.displayPhone}`}><Phone size={18} aria-hidden="true" /><bdi dir="ltr">{site.displayPhone}</bdi></a><a className="footer-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={18} height={18} /> تواصل عبر واتساب <ArrowUpLeft size={16} aria-hidden="true" /></a></div>
       </div>
-      <div className="container footer-bottom"><span>© {new Date().getFullYear()} مركز دار البديع للحجامة · فرع خميس مشيط</span><span>تصميم وتطوير: <strong>المهندس إسلام الشيخ</strong></span></div>
+      <div className="container footer-bottom"><span>© {new Date().getFullYear()} مركز دار البديع للحجامة · فرع خميس مشيط</span><span className="developer-credit">تصميم وتطوير <strong>المهندس إسلام الشيخ</strong></span></div>
     </footer>
   );
 }

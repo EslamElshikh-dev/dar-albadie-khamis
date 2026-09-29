@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowUpLeft, Clock3, HeartHandshake, MapPin, Phone, ShieldCh
 import { BookingCta } from "@/components/site-shell";
 import { WhatsAppIcon } from "@/components/icons";
 import { services } from "@/lib/services";
-import { site, whatsappLink } from "@/lib/site";
+import { mapEmbedUrl, site, whatsappLink } from "@/lib/site";
 
 const photos = [
   { src: site.images.facade, alt: "واجهة المبنى الذي يقع فيه مركز دار البديع في خميس مشيط", caption: "واجهة الموقع" },
@@ -66,6 +66,19 @@ export default function Home() {
       <section className="section gallery-section"><div className="container"><div className="section-heading"><div><span className="eyebrow">صور المكان</span><h2>شوف الفرع <span>قبل ما تزوره.</span></h2></div><p>صور حقيقية منشورة من المركز على ملفه التجاري، تعرض الواجهة وبعض المساحات الداخلية.</p></div><div className="gallery-grid">{photos.map((photo, index) => <figure className={`gallery-item gallery-item-${index + 1}`} key={photo.src}><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 680px) 94vw, 34vw" className="cover-image" /><figcaption>{photo.caption}</figcaption></figure>)}</div><a className="text-link" href={site.maps} target="_blank" rel="noopener noreferrer">شاهد ملف المركز على الخرائط <ArrowUpLeft size={18} aria-hidden="true" /></a></div></section>
 
       <section className="section questions-teaser"><div className="container question-panel"><div className="question-decoration" aria-hidden="true">؟</div><div><span className="eyebrow">أسئلة تتكرر</span><h2>قبل الحجز، <span>خذ إجابتك.</span></h2><p>وين المركز؟ كيف أحجز؟ وهل يوجد قسم للنساء؟ جمعنا الأسئلة العملية في صفحة واحدة.</p></div><Link className="button button-dark" href="/faq">الأسئلة الشائعة <ArrowLeft size={18} aria-hidden="true" /></Link></div></section>
+
+      <section className="section location-section" id="location" aria-labelledby="location-title">
+        <div className="container location-grid">
+          <div className="location-copy">
+            <span className="eyebrow">الوصول إلى الفرع</span>
+            <h2 id="location-title">دار البديع، <span>على الخريطة.</span></h2>
+            <p>زورنا في حي النزهة بخميس مشيط. تقدر تتصفح موقع الفرع هنا، وتفتح الاتجاهات مباشرة قبل ما تتحرك.</p>
+            <div className="location-address"><span className="location-address-icon"><MapPin size={24} aria-hidden="true" /></span><div><small>عنوان الفرع</small><strong>{site.address}</strong></div></div>
+            <div className="location-actions"><a className="button button-dark" href={site.maps} target="_blank" rel="noopener noreferrer"><MapPin size={19} aria-hidden="true" /> افتح الاتجاهات <ArrowUpLeft size={18} aria-hidden="true" /></a><a className="location-call" href={`tel:${site.phone}`}><Phone size={18} aria-hidden="true" /> اتصل قبل الزيارة</a></div>
+          </div>
+          <div className="location-map"><iframe title="خريطة مركز دار البديع للحجامة، فرع خميس مشيط" src={mapEmbedUrl} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /><div className="location-map-caption"><span><MapPin size={17} aria-hidden="true" /> فرع خميس مشيط · حي النزهة</span><a href={site.maps} target="_blank" rel="noopener noreferrer">عرض في خرائط Google <ArrowUpLeft size={16} aria-hidden="true" /></a></div></div>
+        </div>
+      </section>
       <BookingCta />
     </main>
   );
