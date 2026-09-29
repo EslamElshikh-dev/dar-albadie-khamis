@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpLeft, Clock3, HeartHandshake, MapPin, Phone, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowUpLeft, Clock3, HeartHandshake, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { BookingCta } from "@/components/site-shell";
 import { WhatsAppIcon } from "@/components/icons";
 import { services } from "@/lib/services";
@@ -19,19 +19,20 @@ export default function Home() {
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
-            <div className="hero-kicker"><span className="kicker-dot" /> مركز دار البديع · فرع خميس مشيط</div>
-            <h1>الحجامة في خميس مشيط، <em>من أول سؤال إلى موعدك.</em></h1>
+            <div className="hero-kicker"><span className="kicker-dot" /> مركز دار البديع <span className="kicker-separator" /> فرع خميس مشيط</div>
+            <h1>الحجامة في خميس مشيط، <em>بداية مطمئنة لزيارتك.</em></h1>
             <p>في حي النزهة، مكان واضح الوصول، وقسمان مخصصان للرجال والنساء. تعرّف على الفرع وتواصل مباشرة لتسأل عن الخدمة والموعد المناسب لك.</p>
             <div className="hero-actions">
               <a className="button button-cream" href={whatsappLink("السلام عليكم، أود الاستفسار عن الحجامة في فرع خميس مشيط والمواعيد المتاحة.")} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={21} height={21} /> استفسر واحجز <ArrowLeft size={19} aria-hidden="true" /></a>
               <a className="button button-outline-light" href={site.maps} target="_blank" rel="noopener noreferrer"><MapPin size={19} aria-hidden="true" /> موقع المركز</a>
             </div>
-            <div className="hero-note"><span className="note-line" /> خدمة في المركز · تواصل مباشر مع الفرع</div>
+            <div className="hero-note"><span className="note-line" /> صورة المكان ومعلوماته أمامك قبل الحجز</div>
           </div>
           <div className="hero-visual">
             <div className="hero-image-frame"><Image src={site.images.facade} alt="واجهة المبنى الذي يقع فيه مركز دار البديع للحجامة في خميس مشيط" fill priority sizes="(max-width: 760px) 88vw, 520px" className="cover-image hero-image" /></div>
-            <div className="hero-image-stamp"><span>دار البديع</span><strong>خميس مشيط</strong></div>
+            <div className="hero-image-stamp"><Image src="/images/brand-emblem.webp" alt="" width={58} height={58} /><span><small>مركز دار البديع</small><strong>خميس مشيط</strong></span></div>
             <div className="hero-side-label">صورة حقيقية من ملف المركز</div>
+            <div className="hero-visual-line" aria-hidden="true" />
           </div>
         </div>
         <div className="container hero-facts"><span><MapPin size={19} aria-hidden="true" /> حي النزهة، خميس مشيط</span><span><HeartHandshake size={19} aria-hidden="true" /> قسم للرجال وقسم للنساء</span><span><Phone size={18} aria-hidden="true" /> اتصال وواتساب للحجز</span></div>
@@ -42,7 +43,7 @@ export default function Home() {
           <div className="section-heading"><div><span className="eyebrow">ابدأ من هنا</span><h2>الخدمة والأقسام، <span>بوضوح.</span></h2></div><p>صفحات مختصرة تجيب عن أهم ما تحتاجه قبل أن تتواصل مع الفرع.</p></div>
           <div className="service-grid">
             {services.map((service, index) => <Link className={`service-card service-card-${index + 1}`} href={`/services/${service.slug}`} key={service.slug}>
-              <div className="service-card-top"><span className="service-number">0{index + 1}</span><ArrowUpLeft size={22} strokeWidth={1.8} aria-hidden="true" /></div>
+              <div className="service-card-top"><span className="service-number">0{index + 1} / 03</span><span className="service-card-arrow"><ArrowUpLeft size={21} strokeWidth={1.8} aria-hidden="true" /></span></div>
               <div className="service-card-image"><Image src={service.image} alt={service.imageAlt} fill sizes="(max-width: 680px) 100vw, 33vw" className="cover-image" /></div>
               <div className="service-card-copy"><span className="eyebrow">{service.eyebrow}</span><h3>{service.shortTitle}</h3><p>{service.description}</p><span className="card-link">اكتشف التفاصيل <ArrowLeft size={17} aria-hidden="true" /></span></div>
             </Link>)}

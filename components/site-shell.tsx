@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowUpLeft, MapPin, Menu, Phone, ArrowLeft, Instagram } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpLeft, MapPin, Menu, Phone, ArrowLeft } from "lucide-react";
 import { WhatsAppIcon } from "./icons";
 import { services } from "@/lib/services";
 import { site, whatsappLink } from "@/lib/site";
@@ -12,6 +13,10 @@ const links = [
   { href: "/contact", label: "الموقع والتواصل" },
 ];
 
+function BrandMark() {
+  return <span className="brand-symbol" aria-hidden="true"><Image src="/images/brand-emblem.webp" alt="" width={60} height={60} /></span>;
+}
+
 export function SiteHeader() {
   return (
     <header className="site-header">
@@ -23,7 +28,7 @@ export function SiteHeader() {
       </div>
       <div className="container header-main">
         <Link className="brand" href="/" aria-label="دار البديع للحجامة — الرئيسية">
-          <span className="brand-symbol" aria-hidden="true">د</span>
+          <BrandMark />
           <span className="brand-copy"><strong>دار البديع</strong><small>للحجامة · خميس مشيط</small></span>
         </Link>
         <nav className="desktop-nav" aria-label="التنقل الرئيسي">
@@ -46,7 +51,7 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="container footer-top">
         <div className="footer-intro">
-          <div className="brand footer-brand"><span className="brand-symbol" aria-hidden="true">د</span><span className="brand-copy"><strong>دار البديع</strong><small>للحجامة · خميس مشيط</small></span></div>
+          <div className="brand footer-brand"><BrandMark /><span className="brand-copy"><strong>دار البديع</strong><small>للحجامة · خميس مشيط</small></span></div>
           <p>معلومات واضحة عن الحجامة وفرع خميس مشيط، وخطوة مباشرة للتواصل قبل زيارتك.</p>
           <a className="text-link light" href={site.maps} target="_blank" rel="noopener noreferrer"><MapPin size={18} aria-hidden="true" /> {site.shortAddress} <ArrowUpLeft size={16} aria-hidden="true" /></a>
         </div>
