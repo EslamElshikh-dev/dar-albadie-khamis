@@ -21,7 +21,7 @@ export function AnnouncementTicker() {
         <div className="announcement-window" tabIndex={0} role="region" aria-label="أخبار المركز؛ مرّر لقراءة الشريط عند تقليل الحركة">
           <div className="announcement-track" aria-hidden="true">
             {[0, 1].map((copy) => <div className="announcement-group" key={copy}>
-              {announcements.map((message) => <span className="announcement-item" dir="rtl" key={message}>{message}<span className="announcement-divider" aria-hidden="true">✦</span></span>)}
+              {announcements.map((message) => <span className="announcement-item" dir="rtl" key={message}>{message}<span className="announcement-divider" aria-hidden="true" /></span>)}
             </div>)}
           </div>
         </div>
