@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpLeft, MapPin, Menu, Phone, ArrowLeft } from "lucide-react";
 import { WhatsAppIcon } from "./icons";
+import { AnnouncementTicker } from "./announcement-ticker";
 import { services } from "@/lib/services";
 import { site, whatsappLink } from "@/lib/site";
 
@@ -20,12 +21,7 @@ function BrandMark({ eager = false }: { eager?: boolean }) {
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <div className="topline">
-        <div className="container topline-inner">
-          <span className="topline-location"><MapPin size={15} aria-hidden="true" /> خميس مشيط · حي النزهة</span>
-          <a className="topline-call" href={`tel:${site.phone}`} aria-label={`اتصل بالمركز على ${site.displayPhone}`}><Phone size={15} aria-hidden="true" /><bdi dir="ltr">{site.displayPhone}</bdi></a>
-        </div>
-      </div>
+      <AnnouncementTicker />
       <div className="container header-main">
         <Link className="brand" href="/" aria-label="دار البديع للحجامة — الرئيسية">
           <BrandMark eager />
