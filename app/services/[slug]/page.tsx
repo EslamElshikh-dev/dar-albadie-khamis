@@ -58,7 +58,7 @@ export default async function Service({ params }: Props) {
             <div className="service-hero-foot"><span>01</span><span>تعريف واضح · أسئلة قبل الحجز · موقع الفرع</span></div>
           </div>
           <figure className="service-visual">
-            <div className="service-visual-frame"><Image src={service.image} alt={service.imageAlt} fill priority sizes="(max-width: 760px) 92vw, 43vw" className="cover-image" /></div>
+            <div className="service-visual-frame"><Image src={service.image} alt={service.imageAlt} fill priority fetchPriority="high" sizes="(max-width: 760px) 92vw, 43vw" className="cover-image" /></div>
             <figcaption>{service.imageCaption}</figcaption>
             <span className="service-visual-orbit" aria-hidden="true" />
           </figure>

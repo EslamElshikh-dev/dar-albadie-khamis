@@ -29,7 +29,7 @@ export default function Home() {
             <div className="hero-note"><span className="note-line" /> صورة المكان ومعلوماته أمامك قبل الحجز</div>
           </div>
           <div className="hero-visual">
-            <div className="hero-image-frame"><Image src={site.images.facade} alt="واجهة المبنى الذي يقع فيه مركز دار البديع للحجامة في خميس مشيط" fill priority sizes="(max-width: 760px) 88vw, 520px" className="cover-image hero-image" /></div>
+            <div className="hero-image-frame"><Image src={site.images.facade} alt="واجهة المبنى الذي يقع فيه مركز دار البديع للحجامة في خميس مشيط" fill priority fetchPriority="high" sizes="(max-width: 760px) 88vw, 520px" className="cover-image hero-image" /></div>
             <div className="hero-image-stamp"><Image src="/images/brand-emblem.webp" alt="" width={58} height={58} /><span><small>مركز دار البديع</small><strong>خميس مشيط</strong></span></div>
             <div className="hero-side-label">صورة حقيقية من ملف المركز</div>
             <div className="hero-visual-line" aria-hidden="true" />

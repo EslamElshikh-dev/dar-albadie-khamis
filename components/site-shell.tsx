@@ -13,8 +13,8 @@ const links = [
   { href: "/contact", label: "الموقع والتواصل" },
 ];
 
-function BrandMark() {
-  return <span className="brand-symbol" aria-hidden="true"><Image src="/images/brand-emblem.webp" alt="" width={60} height={60} /></span>;
+function BrandMark({ eager = false }: { eager?: boolean }) {
+  return <span className="brand-symbol" aria-hidden="true"><Image src="/images/brand-emblem.webp" alt="" width={60} height={60} loading={eager ? "eager" : "lazy"} /></span>;
 }
 
 export function SiteHeader() {
@@ -28,7 +28,7 @@ export function SiteHeader() {
       </div>
       <div className="container header-main">
         <Link className="brand" href="/" aria-label="دار البديع للحجامة — الرئيسية">
-          <BrandMark />
+          <BrandMark eager />
           <span className="brand-copy"><strong>دار البديع</strong><small>للحجامة · خميس مشيط</small></span>
         </Link>
         <nav className="desktop-nav" aria-label="التنقل الرئيسي">
