@@ -7,7 +7,7 @@ import { site, whatsappLink } from "@/lib/site";
 
 const links = [
   { href: "/", label: "الرئيسية" },
-  { href: "/services/hijama-khamis-mushait", label: "الحجامة" },
+  { href: "/services", label: "الخدمات" },
   { href: "/about", label: "عن المركز" },
   { href: "/faq", label: "الأسئلة الشائعة" },
   { href: "/contact", label: "الموقع والتواصل" },
@@ -56,7 +56,7 @@ export function SiteFooter() {
           <a className="footer-address" href={site.maps} target="_blank" rel="noopener noreferrer"><MapPin size={18} aria-hidden="true" /><span>{site.shortAddress}</span><ArrowUpLeft size={16} aria-hidden="true" /></a>
         </div>
         <nav className="footer-links" aria-label="روابط الموقع"><h2>تصفّح الموقع</h2>{links.map((link) => <Link href={link.href} key={link.href}>{link.label}</Link>)}</nav>
-        <nav className="footer-links" aria-label="الخدمات والأقسام"><h2>الأقسام والخدمات</h2>{services.map((service) => <Link href={`/services/${service.slug}`} key={service.slug}>{service.shortTitle}</Link>)}</nav>
+        <nav className="footer-links" aria-label="الخدمات والأقسام"><h2>الأنواع والأقسام</h2>{services.filter((service) => service.category !== "overview").map((service) => <Link href={`/services/${service.slug}`} key={service.slug}>{service.shortTitle}</Link>)}</nav>
         <div className="footer-contact"><span className="footer-contact-kicker">تواصل مع فرع خميس مشيط</span><h2>جاهزين لاستفسارك</h2><p>اسأل عن الخدمة والمواعيد المتاحة قبل الحضور.</p><a className="footer-phone" href={`tel:${site.phone}`} aria-label={`اتصل بالمركز على ${site.displayPhone}`}><Phone size={18} aria-hidden="true" /><bdi dir="ltr">{site.displayPhone}</bdi></a><a className="footer-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={18} height={18} /> تواصل عبر واتساب <ArrowUpLeft size={16} aria-hidden="true" /></a></div>
       </div>
       <div className="container footer-bottom"><span>© {new Date().getFullYear()} مركز دار البديع للحجامة · فرع خميس مشيط</span><span className="developer-credit">تصميم وتطوير <strong>المهندس إسلام الشيخ</strong></span></div>

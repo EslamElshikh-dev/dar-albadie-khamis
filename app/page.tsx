@@ -3,7 +3,7 @@ import Link from "next/link";
 import { ArrowLeft, ArrowUpLeft, Clock3, HeartHandshake, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { BookingCta } from "@/components/site-shell";
 import { WhatsAppIcon } from "@/components/icons";
-import { services } from "@/lib/services";
+import { serviceMethods } from "@/lib/services";
 import { mapEmbedUrl, site, whatsappLink } from "@/lib/site";
 
 const photos = [
@@ -40,14 +40,15 @@ export default function Home() {
 
       <section className="section services-section" id="services">
         <div className="container">
-          <div className="section-heading"><div><span className="eyebrow">ابدأ من هنا</span><h2>الخدمة والأقسام، <span>بوضوح.</span></h2></div><p>صفحات مختصرة تجيب عن أهم ما تحتاجه قبل أن تتواصل مع الفرع.</p></div>
+          <div className="section-heading"><div><span className="eyebrow">ابدأ من هنا</span><h2>أنواع الحجامة، <span>بوضوح.</span></h2></div><p>لكل خدمة صفحة تشرح الفكرة وما تسأل عنه قبل الجلسة. اكتشف الأنواع المدرجة لفرع خميس مشيط.</p></div>
           <div className="service-grid">
-            {services.map((service, index) => <Link className={`service-card service-card-${index + 1}`} href={`/services/${service.slug}`} key={service.slug}>
+            {serviceMethods.slice(0, 3).map((service, index) => <Link className={`service-card service-card-${index + 1}`} href={`/services/${service.slug}`} key={service.slug}>
               <div className="service-card-top"><span className="service-number">0{index + 1} / 03</span><span className="service-card-arrow"><ArrowUpLeft size={21} strokeWidth={1.8} aria-hidden="true" /></span></div>
-              <div className="service-card-image"><Image src={service.image} alt={service.imageAlt} fill sizes="(max-width: 680px) 100vw, 33vw" className="cover-image" /></div>
-              <div className="service-card-copy"><span className="eyebrow">{service.eyebrow}</span><h3>{service.shortTitle}</h3><p>{service.description}</p><span className="card-link">اكتشف التفاصيل <ArrowLeft size={17} aria-hidden="true" /></span></div>
+              <div className="service-card-image"><Image src={service.image} alt={service.imageAlt} fill sizes="(max-width: 680px) 100vw, 33vw" className="cover-image" /><span className="service-image-caption">{service.imageCaption}</span></div>
+              <div className="service-card-copy"><span className="eyebrow">{service.eyebrow}</span><h3>{service.shortTitle}</h3><p>{service.intro}</p><span className="card-link">اكتشف التفاصيل <ArrowLeft size={17} aria-hidden="true" /></span></div>
             </Link>)}
           </div>
+          <div className="services-more"><Link className="button button-outline-dark" href="/services">جميع الأنواع والأقسام <ArrowUpLeft size={18} aria-hidden="true" /></Link><span>دليل واضح لكل خدمة مدرجة في الفرع</span></div>
         </div>
       </section>
 
