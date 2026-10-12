@@ -50,7 +50,7 @@ export function SiteFooter() {
         </div>
         <nav className="footer-links" aria-label="روابط الموقع"><h2>تصفّح الموقع</h2>{links.map((link) => <Link href={link.href} key={link.href}>{link.label}</Link>)}</nav>
         <nav className="footer-links" aria-label="الخدمات والأقسام"><h2>الأنواع والأقسام</h2>{services.filter((service) => service.category !== "overview").map((service) => <Link href={`/services/${service.slug}`} key={service.slug}>{service.shortTitle}</Link>)}</nav>
-        <div className="footer-contact"><span className="footer-contact-kicker">تواصل مع فرع خميس مشيط</span><h2>جاهزين لاستفسارك</h2><p>اسأل عن الخدمة والمواعيد المتاحة قبل الحضور.</p><a className="footer-phone" href={`tel:${site.phone}`} aria-label={`اتصل بالمركز على ${site.displayPhone}`}><Phone size={18} aria-hidden="true" /><bdi dir="ltr">{site.displayPhone}</bdi></a><a className="footer-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={18} height={18} /> تواصل عبر واتساب <ArrowUpLeft size={16} aria-hidden="true" /></a></div>
+        <div className="footer-contact"><span className="footer-contact-kicker">تواصل مع فرع خميس مشيط</span><h2>جاهزين لاستفسارك</h2><p>اسأل عن الخدمة والمواعيد المتاحة قبل الحضور.</p><a className="footer-phone" href={`tel:${site.phone}`} aria-label={`اتصل بالمركز على ${site.displayPhone}`}><Phone size={18} aria-hidden="true" /><bdi dir="ltr">{site.displayPhone}</bdi></a><a className="footer-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="التواصل مع فرع دار البديع بخميس مشيط عبر واتساب، يفتح في تبويب جديد"><WhatsAppIcon width={22} height={22} /> تواصل عبر واتساب <ArrowUpLeft size={16} aria-hidden="true" /></a></div>
       </div>
       <div className="container footer-bottom"><p className="footer-rights">© {new Date().getFullYear()} دار البديع للحجامة<span>جميع الحقوق محفوظة.</span></p><DeveloperSignature /></div>
     </footer>
@@ -61,14 +61,14 @@ export function FloatingActions() {
   return (
     <>
       <div className="floating-actions" aria-label="طرق التواصل السريعة">
-        <a className="floating-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="التواصل عبر واتساب"><WhatsAppIcon width={27} height={27} /></a>
+        <a className="floating-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="التواصل عبر واتساب"><WhatsAppIcon width={29} height={29} /><span className="floating-action-label">واتساب</span></a>
         <a className="floating-phone" href={`tel:${site.phone}`} aria-label="الاتصال بمركز دار البديع"><Phone size={23} aria-hidden="true" /></a>
       </div>
       <nav className="mobile-quick-actions" aria-label="الوصول السريع للخدمات والتواصل">
         <Link href="/services"><Layers3 size={20} aria-hidden="true" /><span>الخدمات</span></Link>
         <Link href="/contact"><MapPin size={20} aria-hidden="true" /><span>الموقع</span></Link>
         <a href={`tel:${site.phone}`}><Phone size={20} aria-hidden="true" /><span>اتصل بنا</span></a>
-        <a className="quick-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={22} height={22} /><span>واتساب</span></a>
+        <a className="quick-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="تواصل مع دار البديع عبر واتساب"><WhatsAppIcon width={24} height={24} /><span>واتساب</span></a>
       </nav>
     </>
   );
@@ -79,6 +79,6 @@ export function Breadcrumbs({ items }: { items: { label: string; href?: string }
 }
 
 export function BookingCta({ heading = "جاهز تستفسر عن موعدك؟", copy = "تواصل مع فرع خميس مشيط مباشرة، وخذ التفاصيل التي تحتاجها قبل الزيارة." }: { heading?: string; copy?: string }) {
-  return <section className="booking-cta"><div className="container booking-inner"><div><span className="eyebrow light-eyebrow">التواصل المباشر</span><h2>{heading}</h2><p>{copy}</p></div><div className="booking-buttons"><a className="button button-cream" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={21} height={21} /> احجز عبر واتساب <ArrowLeft size={18} aria-hidden="true" /></a><a className="button button-outline-light" href={`tel:${site.phone}`}><Phone size={18} aria-hidden="true" /> اتصل بالمركز</a></div></div></section>;
+  return <section className="booking-cta"><div className="container booking-inner"><div><span className="eyebrow light-eyebrow">التواصل المباشر</span><h2>{heading}</h2><p>{copy}</p></div><div className="booking-buttons"><a className="button button-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={24} height={24} /> احجز عبر واتساب <ArrowLeft size={18} aria-hidden="true" /></a><a className="button button-outline-light" href={`tel:${site.phone}`}><Phone size={18} aria-hidden="true" /> اتصل بالمركز</a></div></div></section>;
 }
 

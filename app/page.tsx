@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowUpLeft, ArrowDown, Clock3, HeartHandshake, MapPin, Phon
 import { BookingCta } from "@/components/site-shell";
 import { WhatsAppIcon } from "@/components/icons";
 import { CuppingTypes } from "@/components/cupping-types";
+import { SectionGuide } from "@/components/section-guide";
 import { mapEmbedUrl, site, whatsappLink } from "@/lib/site";
 
 const photos = [
@@ -33,15 +34,20 @@ export default function Home() {
               <a className="button button-cream" href={whatsappLink("السلام عليكم، أود الاستفسار عن الحجامة في فرع خميس مشيط والمواعيد المتاحة.")} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={21} height={21} /> استفسر واحجز <ArrowLeft size={19} aria-hidden="true" /></a>
               <a className="button button-outline-light" href={site.maps} target="_blank" rel="noopener noreferrer"><MapPin size={19} aria-hidden="true" /> موقع المركز</a>
             </div>
-            <div className="hero-note"><span className="note-line" /> خبرة تزيد على ٩ سنوات · ٣ فروع في عسير</div>
+            <div className="hero-proof" aria-label="خبرة المركز وفروعه">
+              <div><strong><bdi dir="ltr">٩+</bdi></strong><span>سنوات في الحجامة</span></div>
+              <div><strong>٣</strong><span>فروع في عسير</span></div>
+              <div><strong className="hero-proof-audience">رجال ونساء</strong><span>أقسام مخصصة</span></div>
+            </div>
             <a className="hero-discover" href="#visit-paths"><span><ArrowDown size={17} aria-hidden="true" /></span> اكتشف طريق زيارتك</a>
           </div>
           <div className="hero-visual">
             <div className="hero-orbit" aria-hidden="true" />
-            <div className="hero-image-frame"><Image src={site.images.facade} alt="واجهة المبنى الذي يقع فيه مركز دار البديع للحجامة في خميس مشيط" fill priority fetchPriority="high" sizes="(max-width: 760px) 88vw, 520px" className="cover-image hero-image" /></div>
-            <div className="hero-image-stamp"><Image src="/images/brand-emblem.webp" alt="" width={58} height={58} /><span><small>مركز دار البديع</small><strong>خميس مشيط</strong></span></div>
+            <div className="hero-image-frame"><Image src={site.images.room} alt="غرفة الحجامة داخل فرع دار البديع في خميس مشيط" fill priority fetchPriority="high" sizes="(max-width: 760px) 88vw, 520px" className="cover-image hero-image" /></div>
+            <Link className="hero-facade-card" href="/contact"><span className="hero-facade-photo"><Image src={site.images.facade} alt="واجهة فرع دار البديع في خميس مشيط" fill sizes="(max-width: 760px) 108px, 142px" className="cover-image" /></span><span className="hero-facade-copy"><strong>واجهة الفرع</strong><ArrowUpLeft size={15} aria-hidden="true" /></span></Link>
+            <div className="hero-image-stamp"><Image src="/images/brand-emblem.webp" alt="" width={76} height={76} /><span><small>مركز دار البديع</small><strong>خميس مشيط</strong></span></div>
             <div className="hero-side-label">دار البديع · خميس مشيط</div>
-            <div className="hero-visual-caption"><span>تعرف على المكان</span><strong>قبل ما توصله.</strong></div>
+            <div className="hero-visual-caption"><span>من داخل فرع خميس مشيط</span><strong>تفاصيل أقرب لك.</strong></div>
             <div className="hero-visual-line" aria-hidden="true" />
           </div>
         </div>
@@ -56,6 +62,8 @@ export default function Home() {
         })}</div>
       </nav>
 
+      <SectionGuide />
+
       <section className="section services-section" id="services">
         <div className="container">
           <div className="section-heading"><div><span className="eyebrow">ثلاث مجموعات رئيسية</span><h2>أنواع الحجامة، <span>بتفاصيل أوضح.</span></h2></div><p>الرطبة والجافة والمتزحلقة؛ تعرف على فكرة كل طريقة والفرق بينها، ثم استكشف صفحتها واسأل الممارس عن ملاءمتها لك.</p></div>
@@ -64,10 +72,10 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section care-section">
+      <section className="section care-section" id="center">
         <div className="container care-grid">
           <div className="care-photo"><Image src={site.images.room} alt="غرفة خدمة من صور مركز دار البديع للحجامة" fill sizes="(max-width: 760px) 92vw, 47vw" className="cover-image" /><span className="photo-caption">من داخل فرع خميس مشيط</span></div>
-          <div className="care-copy"><span className="eyebrow">قبل الزيارة</span><h2>كل ما تحتاجه، <span>في مكان واحد.</span></h2><p>القرار يبدأ بمعلومة واضحة. اعرف موقع المركز، اسأل عن الجلسة والتوقيت، وناقش أي ظروف صحية تخصك مع الممارس قبل الإجراء.</p>
+          <div className="care-copy"><span className="eyebrow">دار البديع للحجامة</span><h2>خبرة تجمعنا، <span>وتفاصيل تهمك.</span></h2><p>بخبرة تزيد على ٩ سنوات وثلاثة فروع في أبها وخميس مشيط ومحايل عسير، نعرّفك هنا بفرع خميس مشيط وأقسامه. اعرف المكان، وتواصل مع المختص لتناقش تفاصيل الجلسة وما يناسب حالتك قبل الزيارة.</p>
             <div className="care-list"><div><span className="care-icon"><MapPin size={23} /></span><div><h3>موقع محدد</h3><p>رابط مباشر للفرع في حي النزهة، مع الاتجاهات على خرائط Google.</p></div></div><div><span className="care-icon"><Clock3 size={23} /></span><div><h3>موعد يناسبك</h3><p>تواصل مع الفرع لتأكيد المواعيد المتاحة قبل الحضور.</p></div></div><div><span className="care-icon"><ShieldCheck size={23} /></span><div><h3>استفسار قبل الجلسة</h3><p>اسأل عن تفاصيل الخدمة وشارك أي معلومات صحية مهمة مع المختص.</p></div></div></div>
             <Link href="/about" className="text-link">تعرف على المركز <ArrowUpLeft size={18} aria-hidden="true" /></Link>
           </div>
