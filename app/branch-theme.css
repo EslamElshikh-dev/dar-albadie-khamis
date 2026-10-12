@@ -1,0 +1,167 @@
+/* One brand, with a restrained visual signature for each branch. */
+body[data-branch="abha"] {
+  --green: #123e40;
+  --deep: #0c2d30;
+  --ink: #204347;
+  --paper: #fbfcf8;
+  --cream: #f4efdf;
+  --gold: #c2ac77;
+  --branch-soft: #eaf1ed;
+  --branch-accent: #e5d3a9;
+  --branch-muted: #5c776e;
+  --branch-hero: #123e40;
+  --branch-glow: #285b59;
+  --branch-border: #c9bc9150;
+  --branch-radius: 26px;
+}
+body[data-branch="khamis"] {
+  --green: #174c38;
+  --deep: #103529;
+  --ink: #234738;
+  --paper: #fffdf8;
+  --cream: #f5eddd;
+  --gold: #bc9b5e;
+  --branch-soft: #f0f0e5;
+  --branch-accent: #e8c991;
+  --branch-muted: #736d50;
+  --branch-hero: #174c38;
+  --branch-glow: #2d6245;
+  --branch-border: #d2b67850;
+  --branch-radius: 18px;
+}
+body[data-branch="muhayil"] {
+  --green: #35492e;
+  --deep: #233322;
+  --ink: #364832;
+  --paper: #fcfaf3;
+  --cream: #f5ecda;
+  --gold: #bc9267;
+  --branch-soft: #eeefdf;
+  --branch-accent: #e7c398;
+  --branch-muted: #6e7959;
+  --branch-hero: #35492e;
+  --branch-glow: #536342;
+  --branch-border: #d6b18450;
+  --branch-radius: 28px;
+}
+
+/* These tokens also reach the service, about and contact pages. */
+body[data-branch] .site-header { background: color-mix(in srgb, var(--paper) 96%, transparent); }
+body[data-branch] .site-header .brand-copy strong { color: var(--green); }
+body[data-branch] .header-cta { background: var(--green); }
+body[data-branch] .announcement-bar { background: var(--deep); }
+body[data-branch] .desktop-nav a[data-active] { color: var(--green); background: var(--branch-soft); box-shadow: inset 0 0 0 1px var(--branch-border); }
+body[data-branch] .hero,
+body[data-branch] .page-hero { background: var(--branch-hero); }
+body[data-branch] .hero::before { background: radial-gradient(ellipse at 0% 18%, var(--branch-glow), transparent 58%); opacity: .65; }
+body[data-branch] .hero::after { border-color: var(--branch-border); }
+body[data-branch] .hero h1 em,
+body[data-branch] .page-hero h1 span { color: var(--branch-accent); }
+body[data-branch] .hero h1 em::after { background: var(--gold); }
+body[data-branch] .hero-kicker { color: var(--branch-accent); border-color: var(--branch-border); }
+body[data-branch] .hero-orbit { border-color: var(--gold); }
+body[data-branch] .hero-image-stamp { background: var(--cream); }
+body[data-branch] .hero-image-stamp strong { color: var(--green); }
+body[data-branch] .hero-facade-card { background: var(--cream); border-color: var(--branch-border); }
+body[data-branch] .hero-facade-copy strong { color: var(--green); }
+body[data-branch] .hero-facts svg { color: var(--branch-accent); }
+body[data-branch] .button-dark { background: var(--green); }
+body[data-branch] .text-link:not(.light) { color: var(--green); }
+body[data-branch] .section-heading h2 span,
+body[data-branch] .care-copy h2 span,
+body[data-branch] .about-copy h2 span { color: var(--branch-muted); }
+body[data-branch] .visit-paths { background: var(--paper); border-color: var(--branch-border); }
+body[data-branch] .visit-path-icon { background: var(--branch-soft); color: var(--green); border-color: var(--branch-border); }
+body[data-branch] .section-guide { background: color-mix(in srgb, var(--paper) 96%, transparent); border-color: var(--branch-border); }
+body[data-branch] .section-guide-links > a[data-active] { background: var(--branch-soft); color: var(--green); }
+body[data-branch] .type-card,
+body[data-branch] .catalog-card,
+body[data-branch] .audience-card,
+body[data-branch] .journey-grid article { border-radius: var(--branch-radius); }
+body[data-branch] .type-card-wet { background: var(--green); border-color: var(--green); }
+body[data-branch] .type-card-moving,
+body[data-branch] .care-section,
+body[data-branch] .gallery-section,
+body[data-branch] .journey-section { background: var(--branch-soft); }
+body[data-branch] .about-points > div { background: var(--branch-soft); }
+body[data-branch] .about-points svg { color: var(--green); }
+body[data-branch] .booking-cta { background: var(--green); }
+body[data-branch] .booking-inner { background: linear-gradient(130deg, #ffffff08, transparent); border-color: var(--branch-border); }
+body[data-branch] .site-footer { background: var(--deep); }
+body[data-branch] .site-footer::before { background: radial-gradient(ellipse at 10% 25%, var(--branch-glow), transparent 65%); opacity: .28; }
+body[data-branch] .footer-contact,
+body[data-branch] .footer-branch-link { border-color: var(--branch-border); }
+body[data-branch] .site-footer .studio-code-mark { background: var(--green); }
+body[data-branch] .floating-actions .floating-phone { color: var(--green); background: var(--cream); border-color: var(--gold); }
+body[data-branch] .floating-actions .floating-phone:hover,
+body[data-branch] .floating-actions .floating-phone:focus-visible { color: var(--deep); background: var(--branch-accent); }
+body[data-branch] .mobile-quick-actions { background: var(--paper); }
+
+/* Abha: a tall arch, cool green and fine champagne outlines. */
+body[data-branch="abha"] .hero-image-frame { border-radius: 230px 230px 28px 28px; border-color: #e6e5cf45; }
+body[data-branch="abha"] .hero-orbit { border-radius: 250px 250px 36px 36px; transform: rotate(3deg); }
+body[data-branch="abha"] .hero-facade-card { transform: rotate(3deg); }
+body[data-branch="abha"] .abha-direction-mark { background: #e7efea; color: var(--green); }
+body[data-branch="abha"] .abha-brand-story { background: radial-gradient(ellipse at 50% 38%, #f7f6eb, #e1ebe4); }
+body[data-branch="abha"] .type-card-visual { border-radius: 18px 18px 70px 18px; }
+body[data-branch="abha"] .visit-paths { border-radius: 27px; }
+
+/* Khamis Mushait: a brighter ivory entrance and clean framed photographs. */
+body[data-branch="khamis"] .hero { color: var(--ink); background: linear-gradient(125deg, #faf6ed 20%, #edf1e5); }
+body[data-branch="khamis"] .hero::before { background: radial-gradient(ellipse at 12% 28%, #d9dfbd80, transparent 65%); }
+body[data-branch="khamis"] .hero::after { border-color: #9d8c5529; }
+body[data-branch="khamis"] .hero h1 { color: var(--green); }
+body[data-branch="khamis"] .hero h1 em { color: #806634; }
+body[data-branch="khamis"] .hero-kicker { color: #665a37; background: #fffdf780; border-color: #b8a77470; border-radius: 13px; }
+body[data-branch="khamis"] .kicker-dot { background: #8c723f; box-shadow: 0 0 0 4px #8c723f12; }
+body[data-branch="khamis"] .hero-copy > p { color: #526653; }
+body[data-branch="khamis"] .hero .button-cream { color: #fff9eb; background: var(--green); border-color: var(--green); box-shadow: 0 8px 20px #174c3820; }
+body[data-branch="khamis"] .hero .button-cream:hover { background: var(--deep); }
+body[data-branch="khamis"] .hero .button-outline-light { color: var(--green); background: #ffffff40; border-color: #84986f; }
+body[data-branch="khamis"] .hero-proof { border-color: #84986f50; }
+body[data-branch="khamis"] .hero-proof > div + div { border-color: #84986f40; }
+body[data-branch="khamis"] .hero-proof strong { color: var(--green); }
+body[data-branch="khamis"] .hero-proof span,
+body[data-branch="khamis"] .hero-discover { color: #55694d; }
+body[data-branch="khamis"] .hero-discover > span { border-color: #82927380; }
+body[data-branch="khamis"] .hero-image-frame { border-radius: 34px 34px 95px 34px; border-color: #ffffffc9; box-shadow: 0 25px 55px #25472c25; }
+body[data-branch="khamis"] .hero-orbit { border-radius: 42px 42px 100px 42px; transform: rotate(-3deg); border-color: #ad965b80; }
+body[data-branch="khamis"] .hero-image-stamp { transform: rotate(0deg); border-radius: 15px; }
+body[data-branch="khamis"] .hero-facade-card { border-radius: 18px; transform: rotate(4deg); }
+body[data-branch="khamis"] .hero-side-label { color: #617358; }
+body[data-branch="khamis"] .hero-facts { background: #e8ecdf85; border-color: #96a58145; }
+body[data-branch="khamis"] .hero-facts > span { color: #35543a; }
+body[data-branch="khamis"] .hero-facts > span + span { border-color: #96a58145; }
+body[data-branch="khamis"] .hero-facts svg { color: #806634; }
+body[data-branch="khamis"] .visit-paths { border-radius: 17px; }
+body[data-branch="khamis"] .type-card-visual { border-radius: 12px 12px 45px 12px; }
+body[data-branch="khamis"] .care-photo,
+body[data-branch="khamis"] .about-photo { border-radius: 30px 30px 80px 30px; }
+body[data-branch="khamis"] .gallery-item { border-radius: 18px; }
+
+/* Muhayil: olive tones, copper details and a softer asymmetric frame. */
+body[data-branch="muhayil"] .hero-kicker { border-radius: 12px; background: #e7c3980b; }
+body[data-branch="muhayil"] .hero-image-frame { border-radius: 105px 28px 70px 28px; border-color: #e7c39838; }
+body[data-branch="muhayil"] .hero-orbit { border-radius: 115px 36px 80px 36px; transform: rotate(-3deg); }
+body[data-branch="muhayil"] .hero-image-stamp { border-radius: 24px 12px 24px 12px; transform: rotate(2deg); }
+body[data-branch="muhayil"] .hero-facade-card { border-radius: 25px 14px 25px 14px; transform: rotate(-3deg); }
+body[data-branch="muhayil"] .muhayil-direction-mark { background: #ecead7; color: var(--green); border-color: var(--gold); }
+body[data-branch="muhayil"] .muhayil-brand-story { background: radial-gradient(ellipse at 50% 38%, #f7f1e1, #e8ead5); }
+body[data-branch="muhayil"] .visit-paths { border-radius: 28px 13px 28px 13px; }
+body[data-branch="muhayil"] .type-card-visual { border-radius: 40px 16px 40px 16px; }
+body[data-branch="muhayil"] .care-photo,
+body[data-branch="muhayil"] .about-photo { border-radius: 90px 24px 70px 24px; }
+body[data-branch="muhayil"] .footer-contact { border-radius: 28px 15px 28px 15px; }
+
+@media (min-width: 761px) {
+  body[data-branch] .site-footer .developer-signature { margin-inline-end: 18px; }
+}
+@media (max-width: 760px) {
+  body[data-branch="abha"] .hero-image-frame { border-radius: 190px 190px 23px 23px; }
+  body[data-branch="abha"] .hero-orbit { border-radius: 200px 200px 28px 28px; }
+  body[data-branch="khamis"] .hero-image-frame { border-radius: 26px 26px 65px 26px; }
+  body[data-branch="khamis"] .hero-orbit { border-radius: 32px 32px 72px 32px; }
+  body[data-branch="muhayil"] .hero-image-frame { border-radius: 80px 23px 52px 23px; }
+  body[data-branch="muhayil"] .hero-orbit { border-radius: 90px 30px 62px 30px; }
+  body[data-branch="muhayil"] .hero-kicker { font-size: .65rem; }
+}

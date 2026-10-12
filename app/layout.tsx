@@ -7,6 +7,7 @@ import "@fontsource-variable/noto-kufi-arabic/wght.css";
 import "@fontsource-variable/noto-sans-arabic/wght.css";
 import "./globals.css";
 import "./experience.css";
+import "./branch-theme.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -25,12 +26,12 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#103a34" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f8f4ea" };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ar" dir="rtl">
-      <body>
+      <body data-branch="khamis">
         <a className="skip-link" href="#main">انتقل إلى المحتوى</a>
         <SiteHeader />
         {children}
