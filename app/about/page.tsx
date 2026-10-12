@@ -3,19 +3,13 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ArrowUpLeft, Clock3, MapPin, UsersRound } from "lucide-react";
 import { Breadcrumbs, BookingCta } from "@/components/site-shell";
-import { site } from "@/lib/site";
+import { site, branches } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "عن دار البديع للحجامة وفروعه",
   description: "تعرف على مركز دار البديع للحجامة، بخبرة تزيد على ٩ سنوات و٣ فروع في أبها وخميس مشيط ومحايل عسير، وأقسام مخصصة للرجال والنساء.",
   alternates: { canonical: "/about" },
 };
-
-const branches = [
-  { name: "أبها", description: "أول مركز مرخص من المركز الوطني للطب البديل والتكميلي في أبها، على شارع البديع الرئيسي.", href: "/contact" },
-  { name: "خميس مشيط", description: "فرعنا في حي النزهة، بأقسام مخصصة للرجال والنساء وروابط مباشرة للحجز والوصول.", href: "https://dar-albadie-khamis.vercel.app/contact" },
-  { name: "محايل عسير", description: "أحد فروع دار البديع الثلاثة في منطقة عسير." },
-];
 
 export default function About() {
   return (
@@ -53,7 +47,7 @@ export default function About() {
         <div className="container">
           <div className="section-heading">
             <div><span className="eyebrow">فروع دار البديع</span><h2 id="branches-title">٣ فروع، <span>بخبرة تجمعنا.</span></h2></div>
-            <p>تعرف على مدن فروعنا، واستكشف تفاصيل زيارة فرع أبها من خلال هذا الموقع.</p>
+            <p>اختر الفرع المناسب لك، واستكشف خدماته وموقعه وطرق التواصل معه.</p>
           </div>
           <div className="journey-grid">
             {branches.map((branch, index) => (
@@ -61,7 +55,9 @@ export default function About() {
                 <span aria-hidden="true">0{index + 1}</span>
                 <h3>{branch.name}</h3>
                 <p>{branch.description}</p>
-                {branch.href ? <Link className="text-link" href={branch.href}>الموقع والتواصل <ArrowUpLeft size={18} aria-hidden="true" /></Link> : null}
+                {branch.isCurrent
+                  ? <Link className="text-link" href={branch.href}>الموقع والتواصل <ArrowUpLeft size={18} aria-hidden="true" /></Link>
+                  : <a className="text-link" href={branch.href} target="_blank" rel="noopener noreferrer" aria-label={`زيارة موقع دار البديع — فرع ${branch.name}`}>زيارة موقع الفرع <ArrowUpLeft size={18} aria-hidden="true" /></a>}
               </article>
             ))}
           </div>

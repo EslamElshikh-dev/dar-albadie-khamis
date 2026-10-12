@@ -18,6 +18,12 @@ export const site = {
   },
 } as const;
 
+export const branches = [
+  { name: "أبها", description: "أول مركز مرخص من المركز الوطني للطب البديل والتكميلي في أبها، على شارع البديع الرئيسي.", href: "/contact", isCurrent: true },
+  { name: "خميس مشيط", description: "فرعنا في حي النزهة، بأقسام مخصصة للرجال والنساء وطرق مباشرة للحجز والوصول.", href: "https://dar-albadie-khamis.vercel.app/", isCurrent: false },
+  { name: "محايل عسير", description: "فرع دار البديع في محايل عسير، مع تفاصيل الخدمات وطرق التواصل والاتجاهات.", href: "https://dar-albadie-muhayil.vercel.app/", isCurrent: false },
+] as const;
+
 export const siteUrl = (process.env.SITE_URL || "https://dar-albadie-abha.vercel.app").replace(/\/$/, "");
 
 export const mapEmbedUrl = `https://maps.google.com/maps?q=${site.latitude}%2C${site.longitude}&z=17&output=embed`;

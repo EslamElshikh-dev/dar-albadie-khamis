@@ -6,7 +6,7 @@ import { AnnouncementTicker } from "./announcement-ticker";
 import { DeveloperSignature } from "./developer-signature";
 import { SiteNavigation } from "./site-navigation";
 import { services } from "@/lib/services";
-import { site, contactHref, contactLabel } from "@/lib/site";
+import { site, branches, contactHref, contactLabel } from "@/lib/site";
 
 const links = [
   { href: "/", label: "الرئيسية" },
@@ -51,6 +51,16 @@ export function SiteFooter() {
         <nav className="footer-links" aria-label="روابط الموقع"><h2>تصفّح الموقع</h2>{links.map((link) => <Link href={link.href} key={link.href}>{link.label}</Link>)}</nav>
         <nav className="footer-links" aria-label="الخدمات والأقسام"><h2>الأنواع والأقسام</h2>{services.filter((service) => service.category !== "overview").map((service) => <Link href={`/services/${service.slug}`} key={service.slug}>{service.shortTitle}</Link>)}</nav>
         <div className="footer-contact"><span className="footer-contact-kicker">تواصل مع فرع أبها</span><h2>جاهزين لاستفسارك</h2><p>اسأل عن الخدمة والمواعيد المتاحة قبل الحضور.</p><a className="footer-phone" href={`tel:${site.phone}`} aria-label={`اتصل بالمركز على ${site.displayPhone}`}><Phone size={18} aria-hidden="true" /><bdi dir="ltr">{site.displayPhone}</bdi></a><a className="footer-whatsapp" href={contactHref()} aria-label="الحجز والتواصل مع فرع دار البديع بأبها"><ContactIcon width={22} height={22} /> {contactLabel} <ArrowUpLeft size={16} aria-hidden="true" /></a></div>
+      </div>
+      <div className="container footer-branches">
+        <div className="footer-branches-heading"><span className="eyebrow light-eyebrow">فروعنا في عسير</span><h2>دار البديع، أقرب لك.</h2><p>اختر الفرع المناسب لزيارتك.</p></div>
+        <nav className="footer-branch-links" aria-label="مواقع فروع دار البديع الأخرى">
+          {branches.filter((branch) => !branch.isCurrent).map((branch) => (
+            <a className="footer-branch-link" href={branch.href} key={branch.name} target="_blank" rel="noopener noreferrer" aria-label={`زيارة موقع دار البديع — فرع ${branch.name}`}>
+              <MapPin size={22} aria-hidden="true" /><span><strong>فرع {branch.name}</strong><small>زيارة موقع الفرع</small></span><ArrowUpLeft size={20} aria-hidden="true" />
+            </a>
+          ))}
+        </nav>
       </div>
       <div className="container footer-bottom"><p className="footer-rights">© {new Date().getFullYear()} دار البديع للحجامة<span>جميع الحقوق محفوظة.</span></p><DeveloperSignature /></div>
     </footer>
