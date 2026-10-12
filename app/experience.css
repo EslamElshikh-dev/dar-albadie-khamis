@@ -609,3 +609,8 @@ main > section[id] { scroll-margin-top: calc(var(--header-offset) + 85px); }
  .muhayil-gallery-note h3 span{display:inline}
 }
 @media(prefers-reduced-motion:reduce){.muhayil-story-orbit{animation:none}}
+
+/* Keep the directions icon legible and clear of the footer signature. */
+.floating-actions .floating-phone{color:#103a34;background:#f6f0dc;border-color:#c6b88d}
+.floating-actions .floating-phone:hover,.floating-actions .floating-phone:focus-visible{color:#103a34;background:#eadebf;border-color:#b99f68}
+@media(min-width:761px){.site-footer .developer-signature{margin-inline-end:18px}}
