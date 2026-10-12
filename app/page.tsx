@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, ArrowUpLeft, Clock3, HeartHandshake, MapPin, Phone, ShieldCheck } from "lucide-react";
+import { ArrowLeft, ArrowUpLeft, ArrowDown, Clock3, HeartHandshake, MapPin, Phone, ShieldCheck, Droplet, UsersRound, Navigation } from "lucide-react";
 import { BookingCta } from "@/components/site-shell";
 import { WhatsAppIcon } from "@/components/icons";
 import { CuppingTypes } from "@/components/cupping-types";
@@ -11,6 +11,13 @@ const photos = [
   { src: site.images.sections, alt: "مدخل الأقسام المخصصة للرجال والنساء داخل المركز", caption: "مدخل الأقسام" },
   { src: site.images.room, alt: "إحدى غرف الخدمة في المركز", caption: "من داخل المركز" },
   { src: site.images.entrance, alt: "مدخل المبنى المؤدي إلى المركز", caption: "الوصول للفرع" },
+];
+
+const visitPaths = [
+  { href: "/services", title: "أنواع الحجامة", copy: "تعرّف على الطرق والفرق بينها", icon: Droplet },
+  { href: "/services/hijama-men", title: "قسم الرجال", copy: "تفاصيل القسم والحجز", icon: UsersRound },
+  { href: "/services/hijama-women", title: "قسم النساء", copy: "رتّبي تفاصيل زيارتك", icon: HeartHandshake },
+  { href: "/contact", title: "الوصول للفرع", copy: "الموقع وطرق التواصل", icon: Navigation },
 ];
 
 export default function Home() {
@@ -26,17 +33,28 @@ export default function Home() {
               <a className="button button-cream" href={whatsappLink("السلام عليكم، أود الاستفسار عن الحجامة في فرع خميس مشيط والمواعيد المتاحة.")} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={21} height={21} /> استفسر واحجز <ArrowLeft size={19} aria-hidden="true" /></a>
               <a className="button button-outline-light" href={site.maps} target="_blank" rel="noopener noreferrer"><MapPin size={19} aria-hidden="true" /> موقع المركز</a>
             </div>
-            <div className="hero-note"><span className="note-line" /> صورة المكان ومعلوماته أمامك قبل الحجز</div>
+            <div className="hero-note"><span className="note-line" /> خبرة تزيد على ٩ سنوات · ٣ فروع في عسير</div>
+            <a className="hero-discover" href="#visit-paths"><span><ArrowDown size={17} aria-hidden="true" /></span> اكتشف طريق زيارتك</a>
           </div>
           <div className="hero-visual">
+            <div className="hero-orbit" aria-hidden="true" />
             <div className="hero-image-frame"><Image src={site.images.facade} alt="واجهة المبنى الذي يقع فيه مركز دار البديع للحجامة في خميس مشيط" fill priority fetchPriority="high" sizes="(max-width: 760px) 88vw, 520px" className="cover-image hero-image" /></div>
             <div className="hero-image-stamp"><Image src="/images/brand-emblem.webp" alt="" width={58} height={58} /><span><small>مركز دار البديع</small><strong>خميس مشيط</strong></span></div>
-            <div className="hero-side-label">صورة حقيقية من ملف المركز</div>
+            <div className="hero-side-label">دار البديع · خميس مشيط</div>
+            <div className="hero-visual-caption"><span>تعرف على المكان</span><strong>قبل ما توصله.</strong></div>
             <div className="hero-visual-line" aria-hidden="true" />
           </div>
         </div>
         <div className="container hero-facts"><span><MapPin size={19} aria-hidden="true" /> حي النزهة، خميس مشيط</span><span><HeartHandshake size={19} aria-hidden="true" /> قسم للرجال وقسم للنساء</span><span><Phone size={18} aria-hidden="true" /> اتصال وواتساب للحجز</span></div>
       </section>
+
+      <nav className="container visit-paths" id="visit-paths" aria-label="اختر مسار زيارتك">
+        <div className="visit-paths-heading"><span>خطوتك الأولى</span><strong>ابدأ من هنا.</strong></div>
+        <div className="visit-paths-grid">{visitPaths.map((path) => {
+          const Icon = path.icon;
+          return <Link href={path.href} key={path.href}><span className="visit-path-icon"><Icon size={21} strokeWidth={1.6} aria-hidden="true" /></span><span className="visit-path-copy"><strong>{path.title}</strong><small>{path.copy}</small></span><ArrowUpLeft className="visit-path-arrow" size={16} aria-hidden="true" /></Link>;
+        })}</div>
+      </nav>
 
       <section className="section services-section" id="services">
         <div className="container">
@@ -58,7 +76,7 @@ export default function Home() {
 
       <section className="section journey-section"><div className="container"><div className="section-heading"><div><span className="eyebrow">خطوتك القادمة</span><h2>من الاستفسار <span>إلى الوصول.</span></h2></div><p>ثلاث خطوات بسيطة تساعدك ترتّب زيارتك للفرع.</p></div><div className="journey-grid"><article><span>01</span><h3>تواصل مع المركز</h3><p>اتصل أو أرسل رسالة واتساب، واذكر أنك تستفسر عن فرع خميس مشيط.</p></article><article><span>02</span><h3>أكد تفاصيل موعدك</h3><p>اسأل عن التوقيت وتفاصيل الجلسة والتكلفة قبل تأكيد الحجز.</p></article><article><span>03</span><h3>توجّه إلى الفرع</h3><p>استخدم موقع Google Maps للوصول إلى حي النزهة بسهولة.</p></article></div></div></section>
 
-      <section className="section gallery-section"><div className="container"><div className="section-heading"><div><span className="eyebrow">صور المكان</span><h2>شوف الفرع <span>قبل ما تزوره.</span></h2></div><p>صور حقيقية منشورة من المركز على ملفه التجاري، تعرض الواجهة وبعض المساحات الداخلية.</p></div><div className="gallery-grid">{photos.map((photo, index) => <figure className={`gallery-item gallery-item-${index + 1}`} key={photo.src}><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 680px) 94vw, 34vw" className="cover-image" /><figcaption>{photo.caption}</figcaption></figure>)}</div><a className="text-link" href={site.maps} target="_blank" rel="noopener noreferrer">شاهد ملف المركز على الخرائط <ArrowUpLeft size={18} aria-hidden="true" /></a></div></section>
+      <section className="section gallery-section" id="gallery"><div className="container"><div className="section-heading"><div><span className="eyebrow">صور المكان</span><h2>شوف الفرع <span>قبل ما تزوره.</span></h2></div><p>صور حقيقية منشورة من المركز على ملفه التجاري، تعرض الواجهة وبعض المساحات الداخلية.</p></div><div className="gallery-grid">{photos.map((photo, index) => <figure className={`gallery-item gallery-item-${index + 1}`} key={photo.src}><Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 680px) 94vw, 34vw" className="cover-image" /><figcaption>{photo.caption}</figcaption></figure>)}</div><a className="text-link" href={site.maps} target="_blank" rel="noopener noreferrer">شاهد ملف المركز على الخرائط <ArrowUpLeft size={18} aria-hidden="true" /></a></div></section>
 
       <section className="section questions-teaser"><div className="container question-panel"><div className="question-decoration" aria-hidden="true">؟</div><div><span className="eyebrow">أسئلة تتكرر</span><h2>قبل الحجز، <span>خذ إجابتك.</span></h2><p>وين المركز؟ كيف أحجز؟ وهل يوجد قسم للنساء؟ جمعنا الأسئلة العملية في صفحة واحدة.</p></div><Link className="button button-dark" href="/faq">الأسئلة الشائعة <ArrowLeft size={18} aria-hidden="true" /></Link></div></section>
 
@@ -78,3 +96,4 @@ export default function Home() {
     </main>
   );
 }
+

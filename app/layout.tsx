@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { SiteFooter, SiteHeader, FloatingActions } from "@/components/site-shell";
+import { SiteMotion } from "@/components/site-motion";
 import { localBusinessSchema, site, siteUrl } from "@/lib/site";
 import "@fontsource-variable/noto-kufi-arabic/wght.css";
 import "@fontsource-variable/noto-sans-arabic/wght.css";
 import "./globals.css";
+import "./experience.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -34,8 +36,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {children}
         <SiteFooter />
         <FloatingActions />
+        <SiteMotion />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema).replace(/</g, "\\u003c") }} />
       </body>
     </html>
   );
 }
+
