@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 };
 
 const branches = [
-  { name: "أبها", description: "أول مركز مرخص من المركز الوطني للطب البديل والتكميلي في أبها." },
-  { name: "خميس مشيط", description: "فرعنا في حي النزهة، بأقسام مخصصة للرجال والنساء وروابط مباشرة للحجز والوصول.", href: "/contact" },
+  { name: "أبها", description: "أول مركز مرخص من المركز الوطني للطب البديل والتكميلي في أبها، على شارع البديع الرئيسي.", href: "/contact" },
+  { name: "خميس مشيط", description: "فرعنا في حي النزهة، بأقسام مخصصة للرجال والنساء وروابط مباشرة للحجز والوصول.", href: "https://dar-albadie-khamis.vercel.app/contact" },
   { name: "محايل عسير", description: "أحد فروع دار البديع الثلاثة في منطقة عسير." },
 ];
 
@@ -32,19 +32,19 @@ export default function About() {
       <section className="section about-section">
         <div className="container about-grid">
           <div className="about-photo">
-            <Image src={site.images.sections} alt="لوحات توجيه قسمي الرجال والنساء داخل المركز" fill priority sizes="(max-width: 760px) 90vw, 46vw" className="cover-image" />
+            <Image src={site.images.facade} alt="واجهة فرع أبها لمركز دار البديع للحجامة" fill priority sizes="(max-width: 760px) 90vw, 46vw" className="cover-image" />
           </div>
           <div className="about-copy">
             <span className="eyebrow">خبرة المركز وفروعه</span>
             <h2>من أبها، <span>إلى خميس مشيط ومحايل عسير.</span></h2>
             <p>مركز دار البديع للحجامة هو أول مركز مرخص من المركز الوطني للطب البديل والتكميلي في أبها. بخبرة تزيد على ٩ سنوات في مجال الحجامة، يضم المركز مختصين للرجال والنساء يتمتعون بكفاءة عالية وخبرة في تقديم خدمات الحجامة.</p>
-            <p>تتوزع فروع المركز الثلاثة بين أبها وخميس مشيط ومحايل عسير. يعرّفك هذا الموقع بفرع خميس مشيط في حي النزهة، وأقسامه وخدماته وطرق الحجز والتواصل معه.</p>
+            <p>تتوزع فروع المركز الثلاثة بين أبها وخميس مشيط ومحايل عسير. يعرّفك هذا الموقع بفرع أبها على شارع البديع الرئيسي، وأقسامه وخدماته وطرق الحجز والتواصل معه.</p>
             <div className="about-points">
               <div><Clock3 size={22} aria-hidden="true" /><span>خبرة تزيد على ٩ سنوات</span></div>
               <div><MapPin size={22} aria-hidden="true" /><span>٣ فروع في منطقة عسير</span></div>
               <div><UsersRound size={22} aria-hidden="true" /><span>مختصون للرجال والنساء</span></div>
             </div>
-            <Link className="text-link" href="/contact">الوصول إلى فرع خميس مشيط <ArrowUpLeft size={18} aria-hidden="true" /></Link>
+            <Link className="text-link" href="/contact">الوصول إلى فرع أبها <ArrowUpLeft size={18} aria-hidden="true" /></Link>
           </div>
         </div>
       </section>
@@ -53,7 +53,7 @@ export default function About() {
         <div className="container">
           <div className="section-heading">
             <div><span className="eyebrow">فروع دار البديع</span><h2 id="branches-title">٣ فروع، <span>بخبرة تجمعنا.</span></h2></div>
-            <p>تعرف على مدن فروعنا، واستكشف تفاصيل زيارة فرع خميس مشيط من خلال هذا الموقع.</p>
+            <p>تعرف على مدن فروعنا، واستكشف تفاصيل زيارة فرع أبها من خلال هذا الموقع.</p>
           </div>
           <div className="journey-grid">
             {branches.map((branch, index) => (
@@ -72,3 +72,4 @@ export default function About() {
     </main>
   );
 }
+

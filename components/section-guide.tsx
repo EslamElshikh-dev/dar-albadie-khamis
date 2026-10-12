@@ -6,7 +6,7 @@ import { ArrowDownRight, Compass } from "lucide-react";
 const sections = [
   { id: "services", label: "أنواع الحجامة" },
   { id: "center", label: "عن المركز" },
-  { id: "gallery", label: "صور الفرع" },
+  { id: "gallery", label: "واجهة الفرع" },
   { id: "location", label: "الموقع" },
 ];
 

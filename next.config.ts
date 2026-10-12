@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   redirects() {
     return [
       {
-        source: "/services/detox-cupping-khamis-mushait",
+        source: "/services/detox-cupping-abha",
         destination: "/services",
         permanent: true,
       },
@@ -15,3 +15,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+

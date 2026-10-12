@@ -10,17 +10,17 @@ import "./experience.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "مركز دار البديع للحجامة | خميس مشيط", template: "%s | دار البديع للحجامة" },
-  description: "مركز دار البديع للحجامة في حي النزهة بخميس مشيط. تعرّف على الخدمة وقسمي الرجال والنساء، واحجز مباشرة عبر واتساب أو الهاتف.",
+  title: { default: "مركز دار البديع للحجامة | أبها", template: "%s | دار البديع للحجامة" },
+  description: "مركز دار البديع للحجامة على شارع البديع الرئيسي بأبها. تعرّف على الخدمة وقسمي الرجال والنساء، واحجز مباشرة عبر الهاتف.",
   applicationName: site.name,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "ar_SA",
     siteName: site.name,
-    title: "مركز دار البديع للحجامة | فرع خميس مشيط",
-    description: "تعرف على المركز، الأقسام، الموقع وطرق الحجز المباشر في حي النزهة، خميس مشيط.",
-    images: [{ url: site.images.facade, width: 750, height: 1184, alt: "واجهة فرع مركز دار البديع للحجامة في خميس مشيط" }],
+    title: "مركز دار البديع للحجامة | فرع أبها",
+    description: "تعرف على المركز، الأقسام، الموقع وطرق الحجز المباشر على شارع البديع الرئيسي، أبها.",
+    images: [{ url: site.images.facade, width: 1200, height: 900, alt: "واجهة فرع مركز دار البديع للحجامة في أبها" }],
   },
   robots: { index: true, follow: true },
 };

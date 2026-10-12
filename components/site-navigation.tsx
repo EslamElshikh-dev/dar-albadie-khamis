@@ -4,7 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { ArrowUpLeft, MapPin, Menu } from "lucide-react";
-import { WhatsAppIcon } from "./icons";
+import { ContactIcon } from "./icons";
+import { contactLabel } from "@/lib/site";
 
 type NavItem = { href: string; label: string };
 
@@ -49,12 +50,12 @@ export function SiteNavigation({ items, bookingUrl }: { items: NavItem[]; bookin
       }}>
         <summary aria-label="قائمة الموقع"><Menu size={23} aria-hidden="true" /><span>القائمة</span></summary>
         <div className="mobile-nav-panel">
-          <div className="mobile-nav-heading"><span>دليل زيارتك</span><strong>دار البديع · خميس مشيط</strong></div>
+          <div className="mobile-nav-heading"><span>دليل زيارتك</span><strong>دار البديع · أبها</strong></div>
           <nav aria-label="التنقل للجوال">
             {items.map((item, index) => <Link href={item.href} key={item.href} data-active={isActive(item.href) || undefined} aria-current={current(item.href)} onClick={closeMenu}><span><small aria-hidden="true">0{index + 1}</small>{item.label}</span><ArrowUpLeft size={17} aria-hidden="true" /></Link>)}
           </nav>
           <div className="mobile-nav-actions">
-            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" onClick={closeMenu}><WhatsAppIcon width={18} height={18} /> احجز عبر واتساب</a>
+            <a href={bookingUrl} onClick={closeMenu}><ContactIcon width={18} height={18} /> {contactLabel}</a>
             <Link href="/contact" onClick={closeMenu}><MapPin size={17} aria-hidden="true" /> موقع الفرع</Link>
           </div>
         </div>

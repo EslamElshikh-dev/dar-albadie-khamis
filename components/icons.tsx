@@ -1,4 +1,10 @@
 import type { SVGProps } from "react";
+import { Phone } from "lucide-react";
+import { site } from "@/lib/site";
+
+export function ContactIcon(props: SVGProps<SVGSVGElement>) {
+  return site.whatsapp ? <WhatsAppIcon {...props} /> : <Phone {...props} aria-hidden="true" />;
+}
 
 export function WhatsAppIcon(props: SVGProps<SVGSVGElement>) {
   return (
@@ -7,3 +13,4 @@ export function WhatsAppIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
