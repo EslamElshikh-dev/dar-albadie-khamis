@@ -50,7 +50,7 @@ export function SiteNavigation({ items, bookingUrl }: { items: NavItem[]; bookin
       }}>
         <summary aria-label="قائمة الموقع"><Menu size={23} aria-hidden="true" /><span>القائمة</span></summary>
         <div className="mobile-nav-panel">
-          <div className="mobile-nav-heading"><span>دليل زيارتك</span><strong>دار البديع · أبها</strong></div>
+          <div className="mobile-nav-heading"><span>دليل زيارتك</span><strong>دار البديع · محايل عسير</strong></div>
           <nav aria-label="التنقل للجوال">
             {items.map((item, index) => <Link href={item.href} key={item.href} data-active={isActive(item.href) || undefined} aria-current={current(item.href)} onClick={closeMenu}><span><small aria-hidden="true">0{index + 1}</small>{item.label}</span><ArrowUpLeft size={17} aria-hidden="true" /></Link>)}
           </nav>

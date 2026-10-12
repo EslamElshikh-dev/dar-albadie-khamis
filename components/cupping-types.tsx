@@ -5,7 +5,7 @@ import { getService } from "@/lib/services";
 
 const groups = [
   {
-    key: "wet", slug: "wet-cupping-abha", label: "الحجامة الرطبة", icon: Droplet,
+    key: "wet", slug: "wet-cupping-muhayil", label: "الحجامة الرطبة", icon: Droplet,
     tag: "شفط مع تشريط الجلد", description: "تختلف عن الطريقة الجافة بخروج الدم إلى الكأس، وتحتاج إلى تقييم ملاءمتها والعناية بمواضعها.",
     chips: ["تقييم قبل الجلسة", "عناية بعد الإجراء"],
     heading: "ما الذي يميز الحجامة الرطبة؟",
@@ -13,7 +13,7 @@ const groups = [
     points: ["تتضمن تشريط الجلد، بخلاف الحجامة الجافة.", "تستلزم مناقشة الأدوية والتاريخ الصحي قبل الجلسة.", "اسأل عن أدوات الإجراء وتعليمات العناية بعده."],
   },
   {
-    key: "dry", slug: "dry-cupping-abha", label: "الحجامة الجافة", icon: Circle,
+    key: "dry", slug: "dry-cupping-muhayil", label: "الحجامة الجافة", icon: Circle,
     tag: "كؤوس الهواء دون تشريط", description: "شفط موضعي بالكؤوس على الجلد دون تشريطه، مع تحديد مواضع التطبيق والمدة بحسب تقييم الممارس.",
     chips: ["دون تشريط", "شفط موضعي"],
     heading: "كيف تختلف الحجامة الجافة؟",
@@ -21,7 +21,7 @@ const groups = [
     points: ["لا تتضمن تشريط الجلد في الطريقة الجافة.", "تعتمد على شفط موضعي في المواضع المختارة.", "اذكر حساسية البشرة وأي تهيج أو مشكلة جلدية."],
   },
   {
-    key: "moving", slug: "moving-cupping-abha", label: "الحجامة المتزحلقة", icon: MoveHorizontal,
+    key: "moving", slug: "moving-cupping-muhayil", label: "الحجامة المتزحلقة", icon: MoveHorizontal,
     tag: "حركة مدروسة للكأس", description: "تحريك الكأس فوق الجلد مع مادة تساعد على الانزلاق؛ وتُعرف أيضًا بالحجامة التدليكية.",
     chips: ["كأس متحرك", "تُعرف بالتدليكية"],
     heading: "ما فكرة الحجامة المتزحلقة؟",

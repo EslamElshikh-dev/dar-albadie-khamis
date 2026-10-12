@@ -10,17 +10,17 @@ import "./experience.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "مركز دار البديع للحجامة | أبها", template: "%s | دار البديع للحجامة" },
-  description: "مركز دار البديع للحجامة على شارع البديع الرئيسي بأبها. تعرّف على الخدمة وقسمي الرجال والنساء، واحجز مباشرة عبر الهاتف.",
+  title: { default: "مركز دار البديع للحجامة | محايل عسير", template: "%s | دار البديع للحجامة" },
+  description: "مركز دار البديع للحجامة في محايل عسير. تعرّف على الخدمة وقسمي الرجال والنساء، واحجز مباشرة عبر الهاتف.",
   applicationName: site.name,
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     locale: "ar_SA",
     siteName: site.name,
-    title: "مركز دار البديع للحجامة | فرع أبها",
-    description: "تعرف على المركز، الأقسام، الموقع وطرق الحجز المباشر على شارع البديع الرئيسي، أبها.",
-    images: [{ url: site.images.facade, width: 1200, height: 900, alt: "واجهة فرع مركز دار البديع للحجامة في أبها" }],
+    title: "مركز دار البديع للحجامة | فرع محايل عسير",
+    description: "تعرف على المركز، الأقسام، الموقع وطرق الحجز المباشر في محايل عسير.",
+    images: [{ url: site.images.facade, width: 768, height: 1024, alt: "واجهة فرع مركز دار البديع للحجامة في محايل عسير" }],
   },
   robots: { index: true, follow: true },
 };

@@ -34,7 +34,7 @@ export default async function Service({ params }: Props) {
   if (!service) notFound();
   const related = services.filter((item) => item.slug !== slug && item.category === service.category).slice(0, 3);
   const schema = [
-    { "@context": "https://schema.org", "@type": "Service", "@id": `${siteUrl}/services/${slug}#service`, name: service.title, description: service.description, serviceType: service.shortTitle, provider: { "@id": `${siteUrl}/#business` }, areaServed: { "@type": "City", name: "أبها" }, url: `${siteUrl}/services/${slug}` },
+    { "@context": "https://schema.org", "@type": "Service", "@id": `${siteUrl}/services/${slug}#service`, name: service.title, description: service.description, serviceType: service.shortTitle, provider: { "@id": `${siteUrl}/#business` }, areaServed: { "@type": "City", name: "محايل عسير" }, url: `${siteUrl}/services/${slug}` },
     { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [
       { "@type": "ListItem", position: 1, name: "الرئيسية", item: siteUrl },
       { "@type": "ListItem", position: 2, name: "الخدمات", item: `${siteUrl}/services` },
@@ -52,7 +52,7 @@ export default async function Service({ params }: Props) {
             <h1>{service.title}</h1>
             <p>{service.intro}</p>
             <div className="hero-actions">
-              <a className="button button-cream" href={contactHref(`السلام عليكم، أود الاستفسار عن ${service.shortTitle} في فرع أبها.`)}><ContactIcon width={21} height={21} /> استفسر عن موعد <ArrowLeft size={18} aria-hidden="true" /></a>
+              <a className="button button-cream" href={contactHref(`السلام عليكم، أود الاستفسار عن ${service.shortTitle} في فرع محايل عسير.`)}><ContactIcon width={21} height={21} /> استفسر عن موعد <ArrowLeft size={18} aria-hidden="true" /></a>
               <a className="button button-outline-light" href={`tel:${site.phone}`}><Phone size={18} aria-hidden="true" /> اتصال مباشر</a>
             </div>
             <div className="service-hero-foot"><span>01</span><span>تعريف واضح · أسئلة قبل الحجز · موقع الفرع</span></div>
@@ -82,17 +82,17 @@ export default async function Service({ params }: Props) {
 
     <section className="section service-preparation">
       <div className="container prep-grid">
-        <div><span className="eyebrow light-eyebrow">قبل الزيارة</span><h2>أسئلة صغيرة،<br /><span>قرار أوضح.</span></h2><p>يمكنك حفظ هذه النقاط وطرحها عند الاتصال بالمركز، ثم تأكيد الموعد والتكلفة مباشرة مع الفرع.</p><a className="button button-cream" href={contactHref(`السلام عليكم، أود معرفة تفاصيل ${service.shortTitle} ومواعيد فرع أبها.`)}>اسأل عبر الهاتف <ArrowLeft size={18} aria-hidden="true" /></a></div>
+        <div><span className="eyebrow light-eyebrow">قبل الزيارة</span><h2>أسئلة صغيرة،<br /><span>قرار أوضح.</span></h2><p>يمكنك حفظ هذه النقاط وطرحها عند الاتصال بالمركز، ثم تأكيد الموعد والتكلفة مباشرة مع الفرع.</p><a className="button button-cream" href={contactHref(`السلام عليكم، أود معرفة تفاصيل ${service.shortTitle} ومواعيد فرع محايل عسير.`)}>اسأل عبر الهاتف <ArrowLeft size={18} aria-hidden="true" /></a></div>
         <ol>{service.preparation.map((item, index) => <li key={item}><span>0{index + 1}</span><p>{item}</p><Check size={19} aria-hidden="true" /></li>)}</ol>
       </div>
     </section>
 
-    <section className="section local-band"><div className="container local-grid"><div><span className="eyebrow">فرع أبها</span><h2>الوجهة: <span>شارع البديع الرئيسي.</span></h2><p>يمكنك فتح الاتجاهات مباشرة قبل التوجه إلى المركز. تأكد من موعدك وتفاصيل الجلسة مع الفرع أولًا.</p><a className="text-link" href={site.maps} target="_blank" rel="noopener noreferrer"><MapPin size={18} aria-hidden="true" /> افتح الاتجاهات <ArrowUpLeft size={17} aria-hidden="true" /></a></div><div className="local-image"><Image src={site.images.facade} alt="واجهة المبنى على شارع البديع الرئيسي الذي يقع فيه المركز" fill sizes="(max-width: 760px) 92vw, 34vw" className="cover-image" /></div></div></section>
+    <section className="section local-band"><div className="container local-grid"><div><span className="eyebrow">فرع محايل عسير</span><h2>الوجهة: <span>محايل عسير.</span></h2><p>يمكنك فتح الاتجاهات مباشرة قبل التوجه إلى المركز. تأكد من موعدك وتفاصيل الجلسة مع الفرع أولًا.</p><a className="text-link" href={site.maps} target="_blank" rel="noopener noreferrer"><MapPin size={18} aria-hidden="true" /> افتح الاتجاهات <ArrowUpLeft size={17} aria-hidden="true" /></a></div><div className="local-image"><Image src={site.images.facade} alt="واجهة المبنى في محايل عسير الذي يقع فيه المركز" fill sizes="(max-width: 760px) 92vw, 34vw" className="cover-image" /></div></div></section>
 
     <section className="section faq-section"><div className="container compact-container"><span className="eyebrow">أسئلة حول الخدمة</span><h2>إجابات قبل الحجز.</h2><div className="faq-list">{service.questions.map(({ question, answer }) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div><p className="service-source">للتعرف على الحجامة وحدود الأبحاث حولها: <a href="https://www.nccih.nih.gov/health/cupping" target="_blank" rel="noopener noreferrer">المركز الوطني الأمريكي للصحة التكميلية والتكاملية <ArrowUpLeft size={14} aria-hidden="true" /></a></p></div></section>
 
     <section className="section related-section"><div className="container"><div className="related-heading"><div><span className="eyebrow">استكشف أيضًا</span><h2>صفحات قد تهمك.</h2></div><Link className="text-link" href="/services">جميع الخدمات <ArrowUpLeft size={17} aria-hidden="true" /></Link></div><div className="related-grid">{related.map((item) => <Link href={`/services/${item.slug}`} key={item.slug}><span>{item.shortTitle}<small>{item.eyebrow}</small></span><ArrowUpLeft size={20} aria-hidden="true" /></Link>)}</div></div></section>
-    <BookingCta heading="تواصل مع فرع أبها" copy="اسأل عن طريقة الجلسة والتكلفة والمواعيد المتاحة قبل زيارتك." />
+    <BookingCta heading="تواصل مع فرع محايل عسير" copy="اسأل عن طريقة الجلسة والتكلفة والمواعيد المتاحة قبل زيارتك." />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replace(/</g, "\\u003c") }} />
   </main>;
 }

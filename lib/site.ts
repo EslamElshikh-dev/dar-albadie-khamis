@@ -1,24 +1,24 @@
 export const site = {
   name: "مركز دار البديع للحجامة",
-  branch: "فرع أبها",
-  legalName: "مركز دار البديع للحجامة (فرع أبها)",
-  phone: "+966172312916",
-  displayPhone: "017 231 2916",
-  address: "شارع البديع الرئيسي، أبها 61461، المملكة العربية السعودية",
-  shortAddress: "شارع البديع الرئيسي، أبها",
+  branch: "فرع محايل عسير",
+  legalName: "مركز دار البديع للحجامة (فرع محايل عسير)",
+  phone: "+966539833342",
+  displayPhone: "053 983 3342",
+  address: "محايل عسير 63412، منطقة عسير، المملكة العربية السعودية",
+  shortAddress: "محايل عسير",
   // Enable WhatsApp after the branch confirms its number.
   whatsapp: null as string | null,
-  maps: "https://maps.app.goo.gl/KTxDgjh4C1CDJ1EK9?g_st=ac",
-  placeId: "ChIJ8bzYugGr_BURYikT-ULH14g",
-  latitude: 18.2242386,
-  longitude: 42.5870234,
+  maps: "https://maps.app.goo.gl/6DrSea32u3SDrAAk8?g_st=ac",
+  placeId: "ChIJU_rIYACF5BURq4t_AClEFaE",
+  latitude: 18.5128948,
+  longitude: 42.0654819,
   images: {
-    facade: "/images/abha-facade.webp",
+    facade: "/images/muhayil-facade.webp",
     emblem: "/images/brand-emblem.webp",
   },
 } as const;
 
-export const siteUrl = (process.env.SITE_URL || "https://dar-albadie-abha.vercel.app").replace(/\/$/, "");
+export const siteUrl = (process.env.SITE_URL || "https://dar-albadie-muhayil.vercel.app").replace(/\/$/, "");
 
 export const mapEmbedUrl = `https://maps.google.com/maps?q=${site.latitude}%2C${site.longitude}&z=17&output=embed`;
 
@@ -40,10 +40,9 @@ export const localBusinessSchema = {
   image: [`${siteUrl}${site.images.facade}`],
   address: {
     "@type": "PostalAddress",
-    streetAddress: "شارع البديع الرئيسي",
-    addressLocality: "أبها",
+    addressLocality: "محايل عسير",
     addressRegion: "عسير",
-    postalCode: "61461",
+    postalCode: "63412",
     addressCountry: "SA",
   },
   geo: {
@@ -52,7 +51,7 @@ export const localBusinessSchema = {
     longitude: site.longitude,
   },
   hasMap: site.maps,
-  areaServed: { "@type": "City", name: "أبها" },
+  areaServed: { "@type": "City", name: "محايل عسير" },
   availableLanguage: "ar-SA",
 };
 
