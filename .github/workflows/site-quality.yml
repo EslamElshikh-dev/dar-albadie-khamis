@@ -1,0 +1,42 @@
+name: Site quality checks
+
+on:
+  push:
+    branches: [main, 'site/*', 'codex/security-next-*']
+  pull_request:
+    branches: [main, 'site/*']
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+      - name: Verify native image processing used by Next.js
+        run: |
+          node --input-type=module <<'JS'
+          import { createRequire } from 'node:module';
+          import assert from 'node:assert/strict';
+          const nextRequire = createRequire(import.meta.resolve('next/package.json'));
+          const sharp = nextRequire('sharp');
+          console.log('Next.js', nextRequire('next/package.json').version, 'sharp', sharp.versions.sharp);
+          const png = await sharp(Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><rect width="8" height="8" fill="red"/></svg>')).png().toBuffer();
+          assert.equal((await sharp(png).metadata()).format, 'png');
+          JS
+      - name: Build production site and validate TypeScript
+        run: npm run build
