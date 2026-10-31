@@ -32,7 +32,8 @@ export function BookingAdmin({ authenticated }: { authenticated: boolean }) {
     event.preventDefault(); setError(""); setLoading(true);
     const form = event.currentTarget;
     try {
-      const response = await fetch("/api/bookings/admin/session", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ key: new FormData(form).get("key") }) });
+      const data = new FormData(form);
+      const response = await fetch("/api/bookings/admin/session", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ username: data.get("username"), password: data.get("password") }) });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "تعذر تسجيل الدخول.");
       form.reset(); setSignedIn(true);
@@ -63,7 +64,7 @@ export function BookingAdmin({ authenticated }: { authenticated: boolean }) {
     finally { setLoading(false); }
   }
 
-  if (!signedIn) return <section className="appointment-admin-login"><CalendarCheck2 size={32} aria-hidden="true" /><h1>متابعة طلبات المواعيد</h1><p>فرع دار البديع للحجامة · خميس مشيط</p><form onSubmit={login}><label htmlFor="admin-key">مفتاح دخول الإدارة</label><input id="admin-key" name="key" type="password" autoComplete="current-password" required maxLength={200} /><button className="button button-dark" disabled={loading}>{loading ? "جارٍ الدخول…" : "دخول الإدارة"}</button></form>{error && <p role="alert" className="appointment-form-error">{error}</p>}</section>;
+  if (!signedIn) return <section className="appointment-admin-login"><CalendarCheck2 size={32} aria-hidden="true" /><h1>متابعة طلبات المواعيد</h1><p>فرع دار البديع للحجامة · خميس مشيط</p><form onSubmit={login}><label htmlFor="admin-username">اسم المستخدم</label><input id="admin-username" name="username" type="text" autoComplete="username" autoCapitalize="none" spellCheck={false} required maxLength={80} /><label htmlFor="admin-password">كلمة المرور</label><input id="admin-password" name="password" type="password" autoComplete="current-password" required maxLength={512} /><button className="button button-dark" disabled={loading}>{loading ? "جارٍ الدخول…" : "دخول الإدارة"}</button></form>{error && <p role="alert" className="appointment-form-error">{error}</p>}</section>;
 
   const visible = bookings.filter((item) => filter === "all" || item.status === filter);
   return <section className="appointment-admin-dashboard"><div className="appointment-admin-heading"><div><span className="eyebrow">خميس مشيط · لوحة المواعيد</span><h1>طلبات الزيارة</h1><p>راجع الطلب وتواصل مع العميل لتأكيد الموعد والتكلفة، ثم حدّث حالته.</p></div><div className="appointment-admin-tools"><button onClick={() => void load()} disabled={loading} className="button button-outline-dark"><RefreshCw size={17} aria-hidden="true" /> تحديث</button><button onClick={() => void logout()} disabled={loading} className="button button-outline-dark"><LogOut size={17} aria-hidden="true" /> خروج</button></div></div>
