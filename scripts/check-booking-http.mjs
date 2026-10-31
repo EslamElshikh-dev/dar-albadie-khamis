@@ -12,6 +12,8 @@ const base = `http://127.0.0.1:${port}`;
 const env = { ...process.env };
 delete env.BLOB_READ_WRITE_TOKEN;
 delete env.BOOKING_ADMIN_KEY;
+delete env.BOOKING_ADMIN_USERNAME;
+delete env.BOOKING_ADMIN_PASSWORD_HASH;
 const server = spawn(process.execPath, ["node_modules/next/dist/bin/next", "start", "--hostname", "127.0.0.1", "--port", String(port)], { env, stdio: ["ignore", "pipe", "pipe"] });
 let logs = "";
 server.stdout.on("data", (chunk) => { logs += chunk; });
@@ -36,6 +38,8 @@ try {
   const admin = await (await call("/booking/manage")).text();
   assert.ok(/name="robots" content="[^"]*noindex/.test(admin));
   assert.ok(!admin.includes("BOOKING_ADMIN_KEY") && !admin.includes("booking-requests/"));
+  assert.ok(admin.includes('name="username"') && admin.includes('name="password"'));
+  assert.ok(!admin.includes('name="key"'));
   console.log("PASS: private management page and no secret disclosure");
   for (const [path, method, body, origin, expected] of [
     ["/api/bookings", "GET", undefined, true, 405],
