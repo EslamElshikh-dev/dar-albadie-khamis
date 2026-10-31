@@ -2,10 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowUpLeft, ArrowDown, Clock3, HeartHandshake, MapPin, Phone, ShieldCheck, Droplet, UsersRound, Navigation } from "lucide-react";
 import { BookingCta } from "@/components/site-shell";
-import { WhatsAppIcon } from "@/components/icons";
 import { CuppingTypes } from "@/components/cupping-types";
 import { SectionGuide } from "@/components/section-guide";
-import { mapEmbedUrl, site, whatsappLink } from "@/lib/site";
+import { mapEmbedUrl, site } from "@/lib/site";
 
 const photos = [
   { src: site.images.facade, alt: "واجهة المبنى الذي يقع فيه مركز دار البديع في خميس مشيط", caption: "واجهة الموقع" },
@@ -31,7 +30,7 @@ export default function Home() {
             <h1>الحجامة في خميس مشيط، <em>بداية مطمئنة لزيارتك.</em></h1>
             <p>في حي النزهة، مكان واضح الوصول، وقسمان مخصصان للرجال والنساء. تعرّف على الفرع وتواصل مباشرة لتسأل عن الخدمة والموعد المناسب لك.</p>
             <div className="hero-actions">
-              <a className="button button-cream" href={whatsappLink("السلام عليكم، أود الاستفسار عن الحجامة في فرع خميس مشيط والمواعيد المتاحة.")} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={21} height={21} /> استفسر واحجز <ArrowLeft size={19} aria-hidden="true" /></a>
+              <Link className="button button-cream" href="/booking">أرسل طلب موعد <ArrowLeft size={19} aria-hidden="true" /></Link>
               <a className="button button-outline-light" href={site.maps} target="_blank" rel="noopener noreferrer"><MapPin size={19} aria-hidden="true" /> موقع المركز</a>
             </div>
             <div className="hero-proof" aria-label="خبرة المركز وفروعه">

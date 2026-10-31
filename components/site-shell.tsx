@@ -1,12 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpLeft, ArrowUp, MapPin, Phone, ArrowLeft, Layers3 } from "lucide-react";
+import { ArrowUpLeft, ArrowUp, MapPin, Phone, ArrowLeft, Layers3, CalendarCheck2 } from "lucide-react";
 import { WhatsAppIcon } from "./icons";
 import { AnnouncementTicker } from "./announcement-ticker";
 import { DeveloperSignature } from "./developer-signature";
 import { SiteNavigation } from "./site-navigation";
 import { services } from "@/lib/services";
-import { site, whatsappLink } from "@/lib/site";
+import { site } from "@/lib/site";
 
 const links = [
   { href: "/", label: "الرئيسية" },
@@ -14,6 +14,7 @@ const links = [
   { href: "/about", label: "عن المركز" },
   { href: "/faq", label: "الأسئلة الشائعة" },
   { href: "/contact", label: "الموقع والتواصل" },
+  { href: "/booking", label: "طلب موعد" },
 ];
 
 function BrandMark({ eager = false }: { eager?: boolean }) {
@@ -29,10 +30,10 @@ export function SiteHeader() {
           <BrandMark eager />
           <span className="brand-copy"><strong>دار البديع</strong><small>للحجامة · خميس مشيط</small></span>
         </Link>
-        <SiteNavigation items={links} bookingUrl={site.whatsapp} />
-        <a className="header-cta" href={whatsappLink("السلام عليكم، أرغب في الاستفسار عن موعد في فرع خميس مشيط.")} target="_blank" rel="noopener noreferrer">
-          <WhatsAppIcon width={20} height={20} /> احجز موعدك
-        </a>
+        <SiteNavigation items={links} bookingUrl="/booking" />
+        <Link className="header-cta" href="/booking">
+          <CalendarCheck2 size={20} aria-hidden="true" /> اطلب موعدك
+        </Link>
       </div>
     </header>
   );
@@ -78,7 +79,7 @@ export function Breadcrumbs({ items }: { items: { label: string; href?: string }
   return <nav className="breadcrumbs" aria-label="مسار الصفحة"><Link href="/">الرئيسية</Link>{items.map((item) => <span key={item.label} className="crumb"><span aria-hidden="true">/</span>{item.href ? <Link href={item.href}>{item.label}</Link> : <span aria-current="page">{item.label}</span>}</span>)}</nav>;
 }
 
-export function BookingCta({ heading = "جاهز تستفسر عن موعدك؟", copy = "تواصل مع فرع خميس مشيط مباشرة، وخذ التفاصيل التي تحتاجها قبل الزيارة." }: { heading?: string; copy?: string }) {
-  return <section className="booking-cta"><div className="container booking-inner"><div><span className="eyebrow light-eyebrow">التواصل المباشر</span><h2>{heading}</h2><p>{copy}</p></div><div className="booking-buttons"><a className="button button-whatsapp" href={site.whatsapp} target="_blank" rel="noopener noreferrer"><WhatsAppIcon width={24} height={24} /> احجز عبر واتساب <ArrowLeft size={18} aria-hidden="true" /></a><a className="button button-outline-light" href={`tel:${site.phone}`}><Phone size={18} aria-hidden="true" /> اتصل بالمركز</a></div></div></section>;
+export function BookingCta({ heading = "رتّب موعد زيارتك", copy = "اختر الخدمة والقسم والفترة المفضّلة، وأرسل طلبك. يؤكد فرع خميس مشيط تفاصيل الموعد معك قبل الزيارة." }: { heading?: string; copy?: string }) {
+  return <section className="booking-cta"><div className="container booking-inner"><div><span className="eyebrow light-eyebrow">طلب موعد مباشر</span><h2>{heading}</h2><p>{copy}</p></div><div className="booking-buttons"><Link className="button button-whatsapp" href="/booking"><CalendarCheck2 size={24} aria-hidden="true" /> أرسل طلب موعد <ArrowLeft size={18} aria-hidden="true" /></Link><a className="button button-outline-light" href={`tel:${site.phone}`}><Phone size={18} aria-hidden="true" /> اتصل بالمركز</a></div></div></section>;
 }
 

@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { ArrowUpLeft, MapPin, Menu } from "lucide-react";
-import { WhatsAppIcon } from "./icons";
+import { ArrowUpLeft, CalendarCheck2, MapPin, Menu } from "lucide-react";
 
 type NavItem = { href: string; label: string };
 
@@ -54,7 +53,7 @@ export function SiteNavigation({ items, bookingUrl }: { items: NavItem[]; bookin
             {items.map((item, index) => <Link href={item.href} key={item.href} data-active={isActive(item.href) || undefined} aria-current={current(item.href)} onClick={closeMenu}><span><small aria-hidden="true">0{index + 1}</small>{item.label}</span><ArrowUpLeft size={17} aria-hidden="true" /></Link>)}
           </nav>
           <div className="mobile-nav-actions">
-            <a href={bookingUrl} target="_blank" rel="noopener noreferrer" onClick={closeMenu}><WhatsAppIcon width={18} height={18} /> احجز عبر واتساب</a>
+            <Link href={bookingUrl} onClick={closeMenu}><CalendarCheck2 size={18} aria-hidden="true" /> أرسل طلب موعد</Link>
             <Link href="/contact" onClick={closeMenu}><MapPin size={17} aria-hidden="true" /> موقع الفرع</Link>
           </div>
         </div>
