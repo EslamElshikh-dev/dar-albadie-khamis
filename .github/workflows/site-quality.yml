@@ -27,6 +27,8 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Audit production dependencies
         run: npm audit --omit=dev --audit-level=high
+      - name: Test booking validation, credentials, and dependency security
+        run: npm test
       - name: Verify native image processing used by Next.js
         run: |
           node --input-type=module <<'JS'
@@ -40,3 +42,5 @@ jobs:
           JS
       - name: Build production site and validate TypeScript
         run: npm run build
+      - name: Check booking HTTP behavior without production credentials
+        run: npm run test:http
