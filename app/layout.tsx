@@ -10,6 +10,7 @@ import "./experience.css";
 import "./branch-theme.css";
 
 export const metadata: Metadata = {
+  creator: "المهندس إسلام الشيخ",
   metadataBase: new URL(siteUrl),
   title: { default: "مركز دار البديع للحجامة | خميس مشيط", template: "%s | دار البديع للحجامة" },
   description: "مركز دار البديع للحجامة في حي النزهة بخميس مشيط. تعرّف على الخدمة وقسمي الرجال والنساء، واحجز مباشرة عبر واتساب أو الهاتف.",
