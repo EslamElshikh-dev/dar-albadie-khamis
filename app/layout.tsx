@@ -10,6 +10,7 @@ import "./experience.css";
 import "./branch-theme.css";
 
 export const metadata: Metadata = {
+  creator: "المهندس إسلام الشيخ",
   metadataBase: new URL(siteUrl),
   title: { default: "مركز دار البديع للحجامة | أبها", template: "%s | دار البديع للحجامة" },
   description: "مركز دار البديع للحجامة على شارع البديع الرئيسي بأبها. تعرّف على الخدمة وقسمي الرجال والنساء، واحجز مباشرة عبر الهاتف.",
